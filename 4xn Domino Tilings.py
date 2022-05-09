@@ -7,7 +7,6 @@
 
 def d(n):
     A = [0] * (n + 1)
-    B = [0] * (n + 1)
     A[0] = 1
     A[1] = 0
     dp = 0
@@ -16,19 +15,15 @@ def d(n):
         ## reccurence relation equation for 4xn dominoe grid
         A[i] = A[i - 1] + 5 * A[i - 2] + A[i - 3]- A[i - 4]
         dp = A[i] + A[i - 1]
-
     return dp
 
 n = int(input("Enter Designated Amount of Datasets (1-1000): "))
 w = []
 
-
 if n > 1000 or n < 1 or type(n) != int:
     print('Please Enter A Valid Input')
     n = int(input("Enter Designated Amount of Datasets (1-1000): "))
-
 else:
-
     for i in range(n):
         width = int(input("Enter Grid Width: "))
         if width <= 23:  # 32 BIT WIDTH CONSTRAINT
@@ -39,6 +34,7 @@ else:
 
 w = sorted(w)
 count = 0
+
 while count != n:
     x = d(w[count])
     count += 1
